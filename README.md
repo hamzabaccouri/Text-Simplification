@@ -1,77 +1,79 @@
-# French Text Simplifier with LLaMA
+# Text Simplification
 
-## Description
-This project is a French text simplifier powered by the LLaMA model. It simplifies French text according to the "Facile à Lire et à Comprendre" (FALC) guidelines. The system takes a standard French sentence as input and rewrites it in a simpler, easier-to-understand form, preserving the original meaning.
+This repository contains a project for simplifying French text according to the Facile à Lire et à Comprendre (FALC) guidelines. The project uses advanced language models to rewrite sentences in a simpler form while preserving the original meaning.
 
-### Key Features:
-- Utilizes LLaMA with **4-bit quantization** for efficient performance.
-- Supports GPU and CPU execution with memory optimization.
-- Allows dynamic input for user-provided sentences.
-- Integrated with a Gradio-based user interface for ease of interaction.
+## Notebooks Included
 
-## FALC Guidelines Used for Simplification
-- Use simple, common vocabulary.
-- Write short, clear sentences.
-- Avoid complex grammar and jargon.
-- Retain the original meaning and key information.
-- Ensure grammatical correctness.
+### 1. Text_Simplification_with_LLAMA.ipynb
+This notebook demonstrates the use of the **LLAMA model** for simplifying French text. It includes:
+- A preprocessing step to format input text.
+- The implementation of Gradio for an interactive user interface.
+- Example prompts and outputs for text simplification.
+
+### 2. Text_Simplification_with_FALCON.ipynb
+This notebook uses the **FALCON model** for the same task. Key differences include:
+- Adaptation to FALCON's tokenizer and model specifications.
+- Similar interactive interface with Gradio.
+- Slight differences in performance based on the model's architecture.
+
+## Features
+- Supports interactive text simplification through Gradio.
+- Implements state-of-the-art language models for text simplification.
+- Customizable input sentences with a focus on FALC guidelines.
 
 ## Setup and Installation
 
 ### Prerequisites
-- Python 3.8+
-- Libraries: `transformers`, `bitsandbytes`, `gradio`
-- A Hugging Face token with access to the LLaMA model repository.
+- **Python 3.8+**
+- Libraries: `transformers`, `bitsandbytes`, `gradio`, `torch`, `sentencepiece`, `accelerate`
+- A Hugging Face token with access to the LLAMA and FALCON model repositories.
 
 ### Steps
-1. Clone the repository:
+1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/llama-text-simplifier.git
-   cd llama-text-simplifier
+   git clone https://github.com/hamzabaccouri/Text-Simplification.git
+   cd Text-Simplification
    ```
+
 2. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+
 3. Set up your Hugging Face token:
    ```bash
    huggingface-cli login
    ```
 
-4. Open the Jupyter notebook:
-   ```bash
-   jupyter notebook llama_text_simplifier.ipynb
-   ```
+4. Open the desired notebook (e.g., LLAMA or FALCON) in Jupyter Notebook or Google Colab.
 
-## Usage
+5. Run all cells to start the Gradio interface. Once launched, input a French sentence to see the simplified output.
 
-1. Run the notebook cells in order.
-2. Enter a French sentence in the input box when prompted.
-3. The simplified version will be displayed in the output.
+## Notes
+- Ensure you have access to the pretrained LLAMA and FALCON models on Hugging Face.
+- The Gradio interface shuts down automatically after 20 seconds of inactivity.
 
 ## Example Input and Output
 
-**Input:**
-> L'apprentissage des mathématiques demande de la rigueur et de la patience.
+### Input:
+```
+L'apprentissage des mathématiques demande de la rigueur et de la patience.
+```
 
-**Output:**
-> Apprendre les mathématiques nécessite de la discipline et de la persévérance.
+### Output:
+```
+Apprendre les mathématiques nécessite de la discipline et de la persévérance.
+```
 
 ## Folder Structure
 ```
-llama-text-simplifier/
-├── llama_text_simplifier.ipynb # Notebook containing the code
-├── requirements.txt            # List of dependencies
-├── README.md                   # Project documentation
+Text-Simplification/
+├── Text_Simplification_with_LLAMA.ipynb  # Notebook using LLAMA
+├── Text_Simplification_with_FALCON.ipynb # Notebook using FALCON
+├── requirements.txt                      # List of dependencies
+├── README.md                             # Project documentation
 ```
 
-## Contributing
-Feel free to contribute to this project by submitting a pull request. Ensure your contributions align with the project goals.
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## Acknowledgements
-- [Hugging Face](https://huggingface.co/) for providing the LLaMA model.
-- [Gradio](https://gradio.app/) for the interactive interface.
-
+- **Hugging Face** for providing the LLAMA and FALCON models.
+- **Gradio** for the interactive interface.
